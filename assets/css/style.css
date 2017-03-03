@@ -1,0 +1,66 @@
+body {
+  height: 100%;
+  background-image: url(../images/lodyas.png);
+  /*background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% auto;*/
+  
+}
+
+.jumbotron, .panel, .footer {
+	background-color: rgba(255,255,255,.5);
+}
+
+img{
+	width: 100%;
+}
+
+.crys0{
+	filter: hue-rotate(0deg);
+}
+
+.crys1{
+	filter: hue-rotate(90deg);
+}
+
+.crys2{
+	filter: hue-rotate(180deg);
+}
+
+.crys3{
+	filter: hue-rotate(250deg);
+}
+
+.btn-primary {
+	background-color: #df691a;
+	border-color: #6f350d;
+}
+
+
+.btn-primary:hover{
+	background-color: #6f350d;
+	border-color: #df691a; 
+}
+
+
+#hideBtn {
+	position: absolute;
+	top:3px;
+	right: 3px;
+}
+
+@keyframes rotateHue-animation{
+	25% { transform: scale(1.25) rotate(180deg); }	
+	/*25%	{ transform: rotate(25deg); }*/
+	50% { filter: hue-rotate(50deg); }
+	50% { transform: scale(1) rotate(0deg); }
+	75% { transform: scale(1.25) rotate(-180deg); }
+	/*75% { transform: rotate(-25deg); }*/
+}
+
+.hueRotate {
+	animation-name: rotateHue-animation;
+	animation-duration: 5000ms;
+	animation-iteration-count: infinite;
+}
+

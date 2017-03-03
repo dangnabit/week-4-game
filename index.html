@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+<head>
+  <title>Crystal Collector!</title>
+</head>
+
+<body>
+  <div class="container">
+    <div id="hideBtn">
+      <a class="btn btn-danger btn-sm hideBtn">Hide rules</a>
+    </div>
+    <div class="jumbotron text-center">
+      <h1>Hello Collector!</h1>
+      <a class="btn btn-primary rules">I wanna hear the rules</a>
+    </div>
+    <div id="rules" class="row panel panel-default panel-body text-center">
+      
+      <div  class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3"><h2>Click away on crystals below!</h2></div>
+    </div>
+    <div class="row scoreBoard text-center">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <h3>Current: <span id="currentScore"></span></h3></div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <h3>Target: <span id="targetScore"></span></h3></div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="col-md-12 col-sm-12">Turns: <span id="turns"></span></div>
+            <div class="col-md-12 col-sm-12">Wins: <span id="wins"></span></div>
+            <div class="col-md-12 col-sm-12">Losses: <span id="losses"></span></div>
+          </div>
+          <div class="row">
+            <div id="rules" class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row crystals">
+      <div class="col-md-3 col-sm-3 col-xs-6 crys0"><img class="crystal" src="assets/images/crys.png" alt="Click me!" crys="0"></div>
+      <div class="col-md-3 col-sm-3 col-xs-6 crys1"><img class="crystal" src="assets/images/crys.png" alt="Click me!" crys="1"></div>
+      <div class="col-md-3 col-sm-3 col-xs-6 crys2"><img class="crystal" src="assets/images/crys.png" alt="Click me!"  crys="2"></div>
+      <div class="col-md-3 col-sm-3 col-xs-6 crys3"><img class="crystal" src="assets/images/crys.png" alt="Click me!"  crys="3"></div>
+    </div>
+  </div>
+  <footer class="footer navbar navbar-default navbar-fixed-bottom align-middle
+text-default text-center">
+    <p>&copy; Copyright 2017 Dan Gabel</p>
+  </footer>
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>
