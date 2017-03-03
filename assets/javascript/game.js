@@ -108,7 +108,7 @@ $(document).ready(function() {
         if (score == target) {
             wins++;
             $wins.text(wins);
-
+            
             newGame();
             rulesShown = false;
             showRules();
