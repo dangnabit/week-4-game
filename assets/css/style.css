@@ -52,14 +52,16 @@ img{
 
 /*Crystal Animation*/
 @keyframes rotateHue-animation{
-	25% { transform: scale(1.25) rotate(180deg); }	
+	25% { transform: scale(1.25) rotate(90deg); }	
 	50% { filter: hue-rotate(50deg); }
-	50% { transform: scale(1) rotate(0deg); }
-	75% { transform: scale(1.25) rotate(-180deg); }
+	50% { transform: scale(1) rotate(180deg); }
+	75% { transform: scale(1.25) rotate(270deg); }
+	100% { transform: rotate(360deg); }
 }
 .hueRotate {
 	animation-name: rotateHue-animation;
-	animation-duration: 5000ms;
+	animation-duration: 3000ms;
 	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
