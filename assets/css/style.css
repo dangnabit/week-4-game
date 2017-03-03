@@ -1,20 +1,19 @@
+/*setting background texture image */
 body {
-  height: 100%;
   background-image: url(../images/lodyas.png);
-  /*background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 100% auto;*/
-  
 }
 
+/*lower opacity for blocks */
 .jumbotron, .panel, .footer {
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,.25);
 }
 
+/*scales imgs to width of div*/
 img{
 	width: 100%;
 }
 
+/*color changes for each image*/
 .crys0{
 	filter: hue-rotate(0deg);
 }
@@ -31,33 +30,33 @@ img{
 	filter: hue-rotate(250deg);
 }
 
+
+/*edit button color*/
 .btn-primary {
 	background-color: #df691a;
 	border-color: #6f350d;
 }
-
 
 .btn-primary:hover{
 	background-color: #6f350d;
 	border-color: #df691a; 
 }
 
-
+/*hide button pin to upper right*/
 #hideBtn {
 	position: absolute;
-	top:3px;
+	top: 3px;
 	right: 3px;
 }
 
+
+/*Crystal Animation*/
 @keyframes rotateHue-animation{
 	25% { transform: scale(1.25) rotate(180deg); }	
-	/*25%	{ transform: rotate(25deg); }*/
 	50% { filter: hue-rotate(50deg); }
 	50% { transform: scale(1) rotate(0deg); }
 	75% { transform: scale(1.25) rotate(-180deg); }
-	/*75% { transform: rotate(-25deg); }*/
 }
-
 .hueRotate {
 	animation-name: rotateHue-animation;
 	animation-duration: 5000ms;

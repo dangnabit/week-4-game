@@ -58,11 +58,13 @@ newGame = function() {
 
 }
 
+//itterates the turn counter and rewrites it to the DOM
 turnsUp = function() {
     turns++;
     $turns.text(turns);
 }
 
+//toggles the rules div in the DOM
 showRules = function() {
     if (rulesShown) {
         $rules.addClass("hide");
@@ -78,27 +80,31 @@ showRules = function() {
 
 
 $(document).ready(function() {
+    //start the first game
     generateTarget();
     generateCrysVal();
     console.log(crysVal);
-
+    //writes all game content to the page
     $currentScore.text(score);
     $wins.text(wins);
     $losses.text(loss);
     $turns.text(turns);
 
 
-
+    //animate crystals on hover
     $crystal.hover(function() {
         gemAnimate(this);
     }, function() {
         $(this).removeClass("hueRotate");
     });
 
+    //click event on the crystals
     $crystal.on("click", function() {
         gemClick(this);
         turnsUp();
 
+
+        //check win conditions
         if (score == target) {
             wins++;
             $wins.text(wins);
@@ -110,7 +116,7 @@ $(document).ready(function() {
             $currentScore.text(score);
 
             
-
+        //check failure condition
         } else if (score > target) {
             loss++;
             $losses.text(loss);
@@ -124,6 +130,7 @@ $(document).ready(function() {
         };
     })
 
+    //rule button click events
     $ruleBtn.on("click", function() {
         ruleClk++;
         if (ruleClk == 6) {
@@ -149,6 +156,7 @@ $(document).ready(function() {
 
     })
 
+    //hide button click event
     $("#hideBtn").on("click", function() {
         showRules();
     })
