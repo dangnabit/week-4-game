@@ -83,7 +83,7 @@ $(document).ready(function() {
     //start the first game
     generateTarget();
     generateCrysVal();
-    console.log(crysVal);
+    
     //writes all game content to the page
     $currentScore.text(score);
     $wins.text(wins);
