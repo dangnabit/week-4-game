@@ -108,11 +108,11 @@ $(document).ready(function() {
         if (score == target) {
             wins++;
             $wins.text(wins);
-            
+            $rules.html("<h2>Final Score: " + score + " Target: " + target + "</h2>");
             newGame();
             rulesShown = false;
             showRules();
-            $rules.html("<h3>You Win! I'm impressed by your mathmatical prowess. <br> Your next target is: </h3><h2> " + target + "</h2>");
+            $rules.append("<h3>You Win! I'm impressed by your mathmatical prowess. <br> Your next target is: </h3><h2> " + target + "</h2>");
             $currentScore.text(score);
 
             
@@ -120,12 +120,12 @@ $(document).ready(function() {
         } else if (score > target) {
             loss++;
             $losses.text(loss);
-
+            $rules.html("<h2>Your Final Score: " + score + " Previous Target: " + target + "</h2>");
             newGame();
             $currentScore.text(score);
             rulesShown = false;
             showRules();
-            $rules.html("<h3>You went over the target. I recommend not doing that. <br> Your next target is: </h3><h2>" + target + "</h2>");
+            $rules.append("<h3>You went over the target. I recommend not doing that. <br> Your next target is: </h3><h2>" + target + "</h2>");
 
         };
     })
