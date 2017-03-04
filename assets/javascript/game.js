@@ -8,7 +8,7 @@ var turns = 0;
 var ruleClk = 0;
 var rulesShown = true;
 var rot;
-//declaring jQuery elements for easy reference
+// caching jQuery elements for easy reference
 var $targetScore = $("#targetScore");
 var $currentScore = $("#currentScore");
 var $crystal = $(".crystal");
@@ -17,7 +17,7 @@ var $wins = $("#wins");
 var $losses = $("#losses");
 var $rules = $("#rules");
 var $ruleBtn = $(".rules")
-
+var $hideBtn = $("#hideBtn");
 
 //Function for when any crystal is clicked
 gemClick = function(crys) {
@@ -26,10 +26,6 @@ gemClick = function(crys) {
     $currentScore.text(score);
 }
 
-//Hover animation function
-gemAnimate = function(crys) {
-    $(crys).addClass('hueRotate');
-}
 
 //randomly generates target number for the game
 generateTarget = function() {
@@ -55,7 +51,6 @@ newGame = function() {
     generateTarget();
     generateCrysVal();
     score = 0;
-
 }
 
 //itterates the turn counter and rewrites it to the DOM
@@ -65,13 +60,17 @@ turnsUp = function() {
 }
 
 //toggles the rules div in the DOM
-showRules = function() {
+toggleRules = function() {
     if (rulesShown) {
-        $rules.addClass("hide");
+        $rules.fadeOut('slow', function() {
+            
+        });
         $(".hideBtn").text("Show Rules");
         rulesShown = false;
     } else {
-        $rules.removeClass("hide");
+        $rules.fadeIn('slow', function() {
+            
+        });;
         $(".hideBtn").text("Hide Rules");
         rulesShown = true;
     }
@@ -79,7 +78,9 @@ showRules = function() {
 
 
 
+
 $(document).ready(function() {
+    
     //start the first game
     generateTarget();
     generateCrysVal();
@@ -91,15 +92,22 @@ $(document).ready(function() {
     $turns.text(turns);
 
 
-    //animate crystals on hover
+    //animate crystals on hover, 
     $crystal.hover(function() {
-        gemAnimate(this);
+       $(this).addClass("hueRotate");
     }, function() {
         $(this).removeClass("hueRotate");
     });
 
     //click event on the crystals
     $crystal.on("click", function() {
+        $(this).css({
+            width: '80%'
+        });
+        $(this).animate({
+            width: '100%'
+        });
+        
         gemClick(this);
         turnsUp();
 
@@ -108,10 +116,10 @@ $(document).ready(function() {
         if (score == target) {
             wins++;
             $wins.text(wins);
-            $rules.html("<h2>Final Score: " + score + " Target: " + target + "</h2>");
+            $rules.html("<h3>Final Score: " + score + " Target: " + target + "</h3>");
             newGame();
             rulesShown = false;
-            showRules();
+            toggleRules();
             $rules.append("<h3>You Win! I'm impressed by your mathmatical prowess. <br> Your next target is: </h3><h2> " + target + "</h2>");
             $currentScore.text(score);
 
@@ -120,14 +128,16 @@ $(document).ready(function() {
         } else if (score > target) {
             loss++;
             $losses.text(loss);
-            $rules.html("<h2>Your Final Score: " + score + " Previous Target: " + target + "</h2>");
+            $rules.html("<h3>Final Score: " + score + "       Target: " + target + "</h3>");
             newGame();
             $currentScore.text(score);
             rulesShown = false;
-            showRules();
+            toggleRules();
             $rules.append("<h3>You went over the target. I recommend not doing that. <br> Your next target is: </h3><h2>" + target + "</h2>");
 
         };
+
+
     })
 
     //rule button click events
@@ -136,7 +146,7 @@ $(document).ready(function() {
         if (ruleClk == 6) {
             ruleClk = 4;
             rulesShown = false;
-            showRules();
+            toggleRules();
         }
         if (ruleClk == 1) {
             $ruleBtn.text("Really?");
@@ -147,9 +157,9 @@ $(document).ready(function() {
         } else if (ruleClk == 4) {
             $ruleBtn.text("Fine.").delay(800);
             rulesShown = false;
-            showRules();
+            toggleRules();
 
-            $rules.html("<h3>Click on the crystals to increase your score. Pay attention though. Each crystal increses you score by a different value and changes every round. Don't be discouraged if you can't complete this challenge. </h3> <h2>Math is hard.</h2>")
+            $rules.html("<h3>Click on the crystals to increase your score. Pay attention though. Each crystal increses you score by a different value and changes every round. Don't be discouraged if you can't complete this challenge. </h3> <h2>Math is hard.</h2>");
         } else if (ruleClk == 5) {
             $ruleBtn.text("Need to hear the rules again, huh?")
         }
@@ -157,11 +167,12 @@ $(document).ready(function() {
     })
 
     //hide button click event
-    $("#hideBtn").on("click", function() {
-        showRules();
+    $hideBtn.on("click", function() {
+        toggleRules();
     })
 
-
+    
+    //ADD CLICK ANIMATION FOR CRYSTALS
 
 
 });
