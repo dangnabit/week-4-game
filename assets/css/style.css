@@ -1,13 +1,26 @@
 /*setting background texture image */
 body {
+  color: #cccccc;
   background-image: url(../images/lodyas.png);
 }
 
 /*lower opacity for blocks */
 .jumbotron, .panel, .footer {
-	background-color: rgba(255,255,255,.25);
+	background-color: rgba(200,200,255,.25);
+	border-color: #ffffff;
+	border-width: 1px;
+	border-style: solid;
 }
 
+.footer {
+	border-right: 0;
+	border-left: 0;
+	border-bottom: 0;
+}
+
+.push{
+	height: 50px;
+}
 /*scales imgs to width of div*/
 img{
 	width: 100%;
@@ -47,9 +60,10 @@ img{
 
 /*hide button pin to upper right*/
 #hideBtn {
-	position: absolute;
+	position: fixed;
 	top: 3px;
 	right: 3px;
+	z-index: 100;
 }
 
 

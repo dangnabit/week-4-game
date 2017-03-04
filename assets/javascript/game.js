@@ -1,4 +1,6 @@
-//delare variable for that game
+$(document).ready(function() {
+
+//delare variable for the game
 var wins = 0;
 var loss = 0;
 var score = 0;
@@ -7,7 +9,7 @@ var crysVal = [];
 var turns = 0;
 var ruleClk = 0;
 var rulesShown = true;
-var rot;
+var ruleBtnClk = 0;
 // caching jQuery elements for easy reference
 var $targetScore = $("#targetScore");
 var $currentScore = $("#currentScore");
@@ -18,6 +20,8 @@ var $losses = $("#losses");
 var $rules = $("#rules");
 var $ruleBtn = $(".rules")
 var $hideBtn = $("#hideBtn");
+
+
 
 //Function for when any crystal is clicked
 gemClick = function(crys) {
@@ -77,9 +81,6 @@ toggleRules = function() {
 }
 
 
-
-
-$(document).ready(function() {
     
     //start the first game
     generateTarget();
@@ -101,13 +102,18 @@ $(document).ready(function() {
 
     //click event on the crystals
     $crystal.on("click", function() {
+        
         $(this).css({
-            width: '80%'
+            width: '90%'
         });
         $(this).animate({
             width: '100%'
         });
         
+        if (rulesShown && ruleBtnClk == 1){
+            toggleRules();
+        }
+
         gemClick(this);
         turnsUp();
 
@@ -169,5 +175,7 @@ $(document).ready(function() {
     //hide button click event
     $hideBtn.on("click", function() {
         toggleRules();
+        ruleBtnClk =1;
+
     })
 });
