@@ -170,9 +170,4 @@ $(document).ready(function() {
     $hideBtn.on("click", function() {
         toggleRules();
     })
-
-    
-    //ADD CLICK ANIMATION FOR CRYSTALS
-
-
 });
